@@ -2,8 +2,7 @@
 
 **Problem ID:** 2103  
 **Tags:** Google, Hard  
-**Roles:** Data Analyst, BI Analyst, Data Scientist, Data Engineer, ML Engineer  
-**Last Updated:** March 2025  
+
 
 ---
 
