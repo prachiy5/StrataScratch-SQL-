@@ -2,8 +2,7 @@
 
 **Problem ID:** 9599  
 **Tags:** ESPN, Google, Medium  
-**Roles:** Data Analyst, BI Analyst, Data Scientist, Data Engineer, ML Engineer  
-**Last Updated:** September 2024  
+
 
 ---
 
