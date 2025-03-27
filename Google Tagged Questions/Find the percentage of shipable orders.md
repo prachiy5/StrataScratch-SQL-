@@ -2,8 +2,7 @@
 
 **Problem ID:** 10090  
 **Tags:** Google, Amazon, Medium  
-**Roles:** Data Analyst, BI Analyst, Data Scientist, Data Engineer, ML Engineer  
-**Last Updated:** March 2025  
+
 
 ---
 
