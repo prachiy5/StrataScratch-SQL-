@@ -1,4 +1,4 @@
-## DeepMind Employment Competition: Team Average Scores
+## DeepMind Employment Competition
 
 **Problem ID:** 10070  
 **Tags:** Google, Medium  
