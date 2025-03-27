@@ -3,13 +3,12 @@
 **Problem ID:** 9817  
 **Tags:** Google, Medium  
 
-
 ---
 
 ### Problem Summary
 
 We are working with a dataset of files in the `google_file_store` table. Each row contains a filename and its corresponding textual content. The task is:
-> Count how many times **each word** appears across **all draft files**.
+> Count how many times **each word** appears across **all drafts**.
 
 Return two columns:
 - `word`
@@ -28,32 +27,31 @@ Return two columns:
 
 ### My Thought Process
 
-1. Filter only filenames that include "draft".
-2. Use `STRING_SPLIT()` to break contents into words.
-3. Flatten words across rows using `CROSS APPLY`.
-4. Group by each word and count the number of times it appears.
+1. Use `STRING_SPLIT()` to split `contents` by spaces into individual words.
+2. Clean up punctuation (e.g., remove commas and periods).
+3. Group the results by each word (`value`) and count them.
 
 ---
 
 ### SQL Solution
 
 ```sql
-SELECT LOWER(value) AS word,
-       COUNT(*) AS occurrences
+SELECT 
+  value, 
+  COUNT(*) AS occ
 FROM google_file_store
-CROSS APPLY STRING_SPLIT(contents, ' ')
-WHERE filename LIKE '%draft%'
-GROUP BY LOWER(value)
-ORDER BY occurrences DESC;
+CROSS APPLY STRING_SPLIT(REPLACE(REPLACE(contents, ',', ''), '.', ''), ' ')
+GROUP BY value
+ORDER BY occ DESC;
 ```
 
 ---
 
 ### What I Learned
 
-This pattern is useful for building word clouds, keyword frequency reports, and other natural language analyses using SQL.
+This is a classic use case of unstructured text processing in SQL. Cleaning text before analysis helps avoid counting variations of the same word (like `hello,` vs `hello`).
 
 ---
 
 ### Tags
-`#SQL` `#TextProcessing` `#WordFrequency` `#StringSplit` `#DraftAnalysis` `#InterviewPrep
+`#SQL` `#TextAnalysis` `#WordFrequency` `#Drafts` `#InterviewPrep
